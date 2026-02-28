@@ -47,3 +47,5 @@ screenshot.mjs
 # local files
 *.pdf
 www.sunvest.com_.png
+
+.vercel

@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import MouseGlow from "@/components/ui/MouseGlow";
 
 // Inter font — clean, modern, great readability (used for both headings and body)
 const inter = Inter({
@@ -43,6 +44,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.variable} font-sans antialiased`}>
+        <MouseGlow />
         <Header />
         <main className="min-h-screen">{children}</main>
         <Footer />
