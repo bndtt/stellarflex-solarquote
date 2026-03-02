@@ -1,12 +1,13 @@
 "use client";
 
 import { AnimatedNumber, motion } from "@/components/ui/Motion";
+import CircularProgress from "@/components/ui/CircularProgress";
 
 const stats = [
-  { value: 500, suffix: "+", label: "Ontario Installations" },
-  { value: 4.9, suffix: "\u2605", label: "Customer Rating", decimals: true },
-  { value: 2800, prefix: "$", suffix: "+", label: "Avg Annual Savings" },
-  { value: 25, suffix: " yr", label: "Warranty Coverage" },
+  { value: 500, suffix: "+", label: "Ontario Installations", percent: 85 },
+  { value: 4.9, suffix: "\u2605", label: "Customer Rating", decimals: true, percent: 98 },
+  { value: 2800, prefix: "$", suffix: "+", label: "Avg Annual Savings", percent: 75 },
+  { value: 25, suffix: " yr", label: "Warranty Coverage", percent: 100 },
 ];
 
 export default function StatsBar() {
@@ -29,24 +30,26 @@ export default function StatsBar() {
           {stats.map((stat) => (
             <motion.div
               key={stat.label}
-              className="text-center lg:px-8"
+              className="flex flex-col items-center lg:px-8"
               variants={{
                 hidden: { opacity: 0, y: 16 },
                 visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
               }}
             >
-              <p className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
-                {stat.decimals ? (
-                  <span>{stat.prefix}{stat.value}{stat.suffix}</span>
-                ) : (
-                  <AnimatedNumber
-                    value={stat.value}
-                    prefix={stat.prefix || ""}
-                    suffix={stat.suffix || ""}
-                  />
-                )}
-              </p>
-              <p className="text-xs sm:text-sm text-neutral-400 uppercase tracking-wider font-medium mt-1">
+              <CircularProgress percent={stat.percent} size={88} strokeWidth={3}>
+                <p className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+                  {stat.decimals ? (
+                    <span>{stat.prefix}{stat.value}{stat.suffix}</span>
+                  ) : (
+                    <AnimatedNumber
+                      value={stat.value}
+                      prefix={stat.prefix || ""}
+                      suffix={stat.suffix || ""}
+                    />
+                  )}
+                </p>
+              </CircularProgress>
+              <p className="text-xs sm:text-sm text-neutral-400 uppercase tracking-wider font-medium mt-2">
                 {stat.label}
               </p>
             </motion.div>

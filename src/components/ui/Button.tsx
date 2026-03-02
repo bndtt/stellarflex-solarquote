@@ -4,7 +4,7 @@ import { cn } from "@/lib/utils";
 import { ButtonHTMLAttributes, forwardRef } from "react";
 
 // Button variants matching the StellarFlex brand
-type ButtonVariant = "primary" | "secondary" | "outline" | "ghost";
+type ButtonVariant = "primary" | "secondary" | "outline" | "outline-light" | "ghost";
 type ButtonSize = "sm" | "md" | "lg";
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
@@ -19,6 +19,8 @@ const variantStyles: Record<ButtonVariant, string> = {
     "bg-gradient-to-r from-secondary to-secondary-dark hover:from-secondary-light hover:to-secondary text-white shadow-md hover:shadow-xl hover:shadow-secondary/25",
   outline:
     "border-2 border-primary text-primary hover:bg-primary hover:text-white hover:shadow-lg hover:shadow-primary/15",
+  "outline-light":
+    "border-2 border-white/30 text-white hover:bg-white hover:text-primary-dark hover:shadow-lg hover:shadow-white/15",
   ghost: "text-primary hover:bg-primary/10",
 };
 

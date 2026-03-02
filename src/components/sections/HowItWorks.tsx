@@ -1,7 +1,9 @@
 "use client";
 
 import { MapPin, Zap, Settings, Wrench } from "lucide-react";
-import { FadeIn, StaggerContainer, StaggerItem, motion } from "@/components/ui/Motion";
+import TiltCard from "@/components/ui/TiltCard";
+import { FadeIn, StaggerContainer, StaggerItem } from "@/components/ui/Motion";
+import AnimatedHighlight from "@/components/ui/AnimatedHighlight";
 
 const steps = [
   {
@@ -36,7 +38,7 @@ export default function HowItWorks() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <FadeIn className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-primary uppercase tracking-tight mb-4">
-            How It Works
+            How It <AnimatedHighlight color="rgba(59,130,246,0.12)">Works</AnimatedHighlight>
           </h2>
           <p className="text-lg text-neutral-500 max-w-2xl mx-auto">
             Going solar is easier than you think. Four simple steps to clean, affordable energy.
@@ -50,20 +52,18 @@ export default function HowItWorks() {
           <StaggerContainer className="relative z-10 grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {steps.map((step) => (
               <StaggerItem key={step.number}>
-                <motion.div
-                  whileHover={{ y: -6 }}
-                  transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                  className="relative bg-white/80 backdrop-blur-sm rounded-2xl p-8 border border-neutral-200/60 hover-glow text-center h-full"
-                >
-                  <div className="relative inline-flex items-center justify-center w-16 h-16 bg-blue-500/10 rounded-2xl mb-6">
-                    <step.icon className="h-7 w-7 text-blue-500" />
-                    <span className="absolute -top-2 -right-2 w-7 h-7 bg-gradient-to-br from-primary to-primary-light text-white text-xs font-bold rounded-full flex items-center justify-center shadow-md">
-                      {step.number}
-                    </span>
+                <TiltCard tiltMax={10} className="rounded-2xl h-full">
+                  <div className="relative bg-white/80 backdrop-blur-sm rounded-2xl p-8 border border-neutral-200/60 hover-glow text-center h-full">
+                    <div className="relative inline-flex items-center justify-center w-16 h-16 bg-blue-500/10 rounded-2xl mb-6">
+                      <step.icon className="h-7 w-7 text-blue-500" />
+                      <span className="absolute -top-2 -right-2 w-7 h-7 bg-gradient-to-br from-primary to-primary-light text-white text-xs font-bold rounded-full flex items-center justify-center shadow-md">
+                        {step.number}
+                      </span>
+                    </div>
+                    <h3 className="text-lg font-semibold text-primary mb-3">{step.title}</h3>
+                    <p className="text-neutral-500 text-sm leading-relaxed">{step.description}</p>
                   </div>
-                  <h3 className="text-lg font-semibold text-primary mb-3">{step.title}</h3>
-                  <p className="text-neutral-500 text-sm leading-relaxed">{step.description}</p>
-                </motion.div>
+                </TiltCard>
               </StaggerItem>
             ))}
           </StaggerContainer>

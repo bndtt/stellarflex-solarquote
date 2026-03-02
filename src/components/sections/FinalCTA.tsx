@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import Button from "@/components/ui/Button";
+import MagneticWrap from "@/components/ui/MagneticWrap";
 import { FadeIn } from "@/components/ui/Motion";
 
 export default function FinalCTA() {
@@ -33,11 +34,13 @@ export default function FinalCTA() {
             Get your free quote in seconds. No obligation, no pressure — just
             transparent solar pricing for your Ontario property.
           </p>
-          <Link href="/get-quote">
-            <Button size="lg" className="pulse-glow btn-shine text-base px-10 py-4">
-              Get Your Free Quote
-            </Button>
-          </Link>
+          <MagneticWrap>
+            <Link href="/get-quote">
+              <Button size="lg" className="pulse-glow btn-shine text-base px-10 py-4">
+                Get Your Free Quote
+              </Button>
+            </Link>
+          </MagneticWrap>
         </FadeIn>
       </div>
     </section>

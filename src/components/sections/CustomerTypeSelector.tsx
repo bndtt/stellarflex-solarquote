@@ -3,7 +3,8 @@
 import Link from "next/link";
 import { Home, Building2, ArrowRight } from "lucide-react";
 import Button from "@/components/ui/Button";
-import { FadeIn, StaggerContainer, StaggerItem, motion } from "@/components/ui/Motion";
+import TiltCard from "@/components/ui/TiltCard";
+import { FadeIn, StaggerContainer, StaggerItem } from "@/components/ui/Motion";
 import SectionDivider from "@/components/ui/SectionDivider";
 
 export default function CustomerTypeSelector() {
@@ -30,10 +31,7 @@ export default function CustomerTypeSelector() {
           <StaggerContainer className="lg:w-7/12 space-y-6 w-full">
             {/* Residential Card */}
             <StaggerItem>
-              <motion.div
-                whileHover={{ y: -4 }}
-                transition={{ type: "spring", stiffness: 300, damping: 20 }}
-              >
+              <TiltCard className="rounded-2xl">
                 <div className="group bg-white/90 backdrop-blur-sm rounded-2xl p-8 shadow-md hover:shadow-2xl transition-all duration-300 border border-neutral-200/60 hover:border-blue-500/30 glow-border">
                   <div className="flex items-start gap-6">
                     <div className="w-14 h-14 bg-blue-500/10 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-blue-500/20 group-hover:shadow-lg group-hover:shadow-blue-500/10 transition-all duration-300">
@@ -56,15 +54,12 @@ export default function CustomerTypeSelector() {
                     </div>
                   </div>
                 </div>
-              </motion.div>
+              </TiltCard>
             </StaggerItem>
 
             {/* Commercial Card */}
             <StaggerItem>
-              <motion.div
-                whileHover={{ y: -4 }}
-                transition={{ type: "spring", stiffness: 300, damping: 20 }}
-              >
+              <TiltCard className="rounded-2xl">
                 <div className="group bg-white/90 backdrop-blur-sm rounded-2xl p-8 shadow-md hover:shadow-2xl transition-all duration-300 border border-neutral-200/60 hover:border-secondary/30">
                   <div className="flex items-start gap-6">
                     <div className="w-14 h-14 bg-secondary/10 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-secondary/20 group-hover:shadow-lg group-hover:shadow-secondary/10 transition-all duration-300">
@@ -87,7 +82,7 @@ export default function CustomerTypeSelector() {
                     </div>
                   </div>
                 </div>
-              </motion.div>
+              </TiltCard>
             </StaggerItem>
           </StaggerContainer>
         </div>
