@@ -4,10 +4,10 @@ import { AnimatedNumber, motion } from "@/components/ui/Motion";
 import CircularProgress from "@/components/ui/CircularProgress";
 
 const stats = [
-  { value: 500, suffix: "+", label: "Ontario Installations", percent: 85 },
-  { value: 4.9, suffix: "\u2605", label: "Customer Rating", decimals: true, percent: 98 },
-  { value: 2800, prefix: "$", suffix: "+", label: "Avg Annual Savings", percent: 75 },
-  { value: 25, suffix: " yr", label: "Warranty Coverage", percent: 100 },
+  { value: 500, suffix: "+", label: "Ontario Installations", percent: 85, compact: false },
+  { value: 4.9, suffix: "\u2605", label: "Customer Rating", decimals: true, percent: 98, compact: false },
+  { value: 2800, prefix: "$", suffix: "+", label: "Avg Annual Savings", percent: 75, compact: true },
+  { value: 25, suffix: " yr", label: "Warranty Coverage", percent: 100, compact: false },
 ];
 
 export default function StatsBar() {
@@ -36,8 +36,8 @@ export default function StatsBar() {
                 visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
               }}
             >
-              <CircularProgress percent={stat.percent} size={88} strokeWidth={3}>
-                <p className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+              <CircularProgress percent={stat.percent} size={100} strokeWidth={3}>
+                <p className={`font-extrabold text-white tracking-tight ${stat.compact ? "text-lg sm:text-xl" : "text-2xl sm:text-3xl"}`}>
                   {stat.decimals ? (
                     <span>{stat.prefix}{stat.value}{stat.suffix}</span>
                   ) : (
