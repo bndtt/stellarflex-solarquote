@@ -37,7 +37,7 @@ export default function MouseGlow() {
     function animate() {
       current.current.x += (mouse.current.x - current.current.x) * 0.15;
       current.current.y += (mouse.current.y - current.current.y) * 0.15;
-      glow!.style.transform = `translate(${current.current.x - 300}px, ${current.current.y - 300}px)`;
+      glow!.style.transform = `translate(${current.current.x - 80}px, ${current.current.y - 80}px)`;
       raf.current = requestAnimationFrame(animate);
     }
 
@@ -57,10 +57,10 @@ export default function MouseGlow() {
   return (
     <div
       ref={glowRef}
-      className="fixed top-0 left-0 w-[600px] h-[600px] pointer-events-none z-0 opacity-0 transition-opacity duration-500"
+      className="fixed top-0 left-0 w-[160px] h-[160px] pointer-events-none z-[9998] opacity-0 transition-opacity duration-500"
       style={{
         background:
-          "radial-gradient(circle, rgba(59,130,246,0.045) 0%, rgba(6,182,212,0.02) 40%, transparent 70%)",
+          "radial-gradient(circle, rgba(96,165,250,0.25) 0%, rgba(147,197,253,0.12) 40%, transparent 70%)",
       }}
     />
   );
