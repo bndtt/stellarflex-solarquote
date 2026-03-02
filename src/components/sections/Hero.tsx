@@ -66,8 +66,8 @@ export default function Hero() {
       {/* Morphing gradient blob */}
       <MorphingBlob className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/3 w-[600px] h-[600px] lg:w-[800px] lg:h-[800px] opacity-60 pointer-events-none" />
 
-      {/* Decorative background blurs */}
-      <div className="absolute inset-0">
+      {/* Decorative background blurs — hidden on mobile for performance */}
+      <div className="absolute inset-0 hidden lg:block">
         <motion.div
           className="absolute top-20 right-20 w-72 h-72 bg-blue-100/50 rounded-full blur-3xl"
           initial={{ scale: 0.8, opacity: 0 }}

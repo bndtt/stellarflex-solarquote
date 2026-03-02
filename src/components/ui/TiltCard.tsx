@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useCallback, ReactNode } from "react";
+import { useRef, useCallback, useEffect, useState, ReactNode } from "react";
 
 interface TiltCardProps {
   children: ReactNode;
@@ -12,9 +12,15 @@ interface TiltCardProps {
 export default function TiltCard({ children, className, tiltMax = 8, glare = true }: TiltCardProps) {
   const ref = useRef<HTMLDivElement>(null);
   const glareRef = useRef<HTMLDivElement>(null);
+  const [isTouchDevice, setIsTouchDevice] = useState(false);
+
+  useEffect(() => {
+    setIsTouchDevice(window.matchMedia("(pointer: coarse)").matches);
+  }, []);
 
   const onMove = useCallback(
     (e: React.MouseEvent<HTMLDivElement>) => {
+      if (isTouchDevice) return;
       const el = ref.current;
       if (!el) return;
       const rect = el.getBoundingClientRect();
@@ -29,10 +35,11 @@ export default function TiltCard({ children, className, tiltMax = 8, glare = tru
         glareRef.current.style.background = `radial-gradient(circle at ${x * 100}% ${y * 100}%, rgba(255,255,255,0.15), transparent 60%)`;
       }
     },
-    [tiltMax, glare]
+    [tiltMax, glare, isTouchDevice]
   );
 
   const onLeave = useCallback(() => {
+    if (isTouchDevice) return;
     const el = ref.current;
     if (!el) return;
     el.style.transform = "perspective(800px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)";
@@ -40,7 +47,7 @@ export default function TiltCard({ children, className, tiltMax = 8, glare = tru
     if (glare && glareRef.current) {
       glareRef.current.style.opacity = "0";
     }
-  }, [glare]);
+  }, [glare, isTouchDevice]);
 
   return (
     <div
@@ -48,13 +55,17 @@ export default function TiltCard({ children, className, tiltMax = 8, glare = tru
       className={className}
       onMouseMove={onMove}
       onMouseLeave={onLeave}
-      style={{ transition: "transform 0.2s ease-out", willChange: "transform", position: "relative" }}
+      style={{
+        transition: isTouchDevice ? undefined : "transform 0.2s ease-out",
+        willChange: isTouchDevice ? undefined : "transform",
+        position: "relative",
+      }}
     >
       {children}
-      {glare && (
+      {glare && !isTouchDevice && (
         <div
           ref={glareRef}
-          className="absolute inset-0 rounded-inherit pointer-events-none opacity-0 transition-opacity duration-300"
+          className="absolute inset-0 pointer-events-none opacity-0 transition-opacity duration-300"
           style={{ borderRadius: "inherit" }}
         />
       )}

@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
 interface MorphingBlobProps {
@@ -13,6 +14,22 @@ const blobPaths = [
 ];
 
 export default function MorphingBlob({ className }: MorphingBlobProps) {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    // Skip expensive SVG morphing + blur on mobile
+    setIsMobile(window.matchMedia("(max-width: 768px)").matches);
+  }, []);
+
+  // On mobile, render a simple static gradient circle instead
+  if (isMobile) {
+    return (
+      <div className={className}>
+        <div className="w-full h-full rounded-full bg-gradient-to-br from-blue-100/30 to-cyan-100/20" />
+      </div>
+    );
+  }
+
   return (
     <div className={className}>
       <motion.svg

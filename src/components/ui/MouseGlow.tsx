@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export default function MouseGlow() {
   const glowRef = useRef<HTMLDivElement>(null);
@@ -8,8 +8,15 @@ export default function MouseGlow() {
   const mouse = useRef({ x: 0, y: 0 });
   const current = useRef({ x: 0, y: 0 });
   const visible = useRef(false);
+  const [isTouchDevice, setIsTouchDevice] = useState(false);
 
   useEffect(() => {
+    // Skip on touch devices — no mouse to track
+    if (window.matchMedia("(pointer: coarse)").matches) {
+      setIsTouchDevice(true);
+      return;
+    }
+
     const glow = glowRef.current;
     if (!glow) return;
 
@@ -28,12 +35,9 @@ export default function MouseGlow() {
     }
 
     function animate() {
-      // Lerp for smooth trailing
       current.current.x += (mouse.current.x - current.current.x) * 0.15;
       current.current.y += (mouse.current.y - current.current.y) * 0.15;
-
       glow!.style.transform = `translate(${current.current.x - 300}px, ${current.current.y - 300}px)`;
-
       raf.current = requestAnimationFrame(animate);
     }
 
@@ -47,6 +51,8 @@ export default function MouseGlow() {
       cancelAnimationFrame(raf.current);
     };
   }, []);
+
+  if (isTouchDevice) return null;
 
   return (
     <div
