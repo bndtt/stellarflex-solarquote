@@ -5,6 +5,7 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import MouseGlow from "@/components/ui/MouseGlow";
 import ScrollProgress from "@/components/ui/ScrollProgress";
+import BackToTop from "@/components/ui/BackToTop";
 
 // Inter font — clean, modern, great readability (used for both headings and body)
 const inter = Inter({
@@ -50,6 +51,7 @@ export default function RootLayout({
         <Header />
         <main className="min-h-screen">{children}</main>
         <Footer />
+        <BackToTop />
       </body>
     </html>
   );

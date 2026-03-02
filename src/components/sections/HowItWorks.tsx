@@ -2,8 +2,9 @@
 
 import { MapPin, Zap, Settings, Wrench } from "lucide-react";
 import TiltCard from "@/components/ui/TiltCard";
-import { FadeIn, StaggerContainer, StaggerItem } from "@/components/ui/Motion";
+import { FadeIn, StaggerContainer, StaggerItem, motion } from "@/components/ui/Motion";
 import AnimatedHighlight from "@/components/ui/AnimatedHighlight";
+import ParallaxShapes, { LIGHT_SECTION_SHAPES } from "@/components/ui/ParallaxShapes";
 
 const steps = [
   {
@@ -34,8 +35,9 @@ const steps = [
 
 export default function HowItWorks() {
   return (
-    <section className="py-20 lg:py-32 bg-neutral-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-20 lg:py-32 bg-neutral-50 relative">
+      <ParallaxShapes shapes={LIGHT_SECTION_SHAPES} />
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <FadeIn className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-primary uppercase tracking-tight mb-4">
             How It <AnimatedHighlight color="rgba(59,130,246,0.12)">Works</AnimatedHighlight>
@@ -46,8 +48,27 @@ export default function HowItWorks() {
         </FadeIn>
 
         <div className="relative">
-          {/* Connecting line (desktop only) */}
-          <div className="hidden lg:block absolute top-[72px] left-[12.5%] right-[12.5%] h-0.5 bg-gradient-to-r from-blue-500/10 via-cyan-500/30 to-blue-500/10 z-0" />
+          {/* Animated connecting line (desktop only) — draws left-to-right on scroll */}
+          <div className="hidden lg:block absolute top-[72px] left-[12.5%] right-[12.5%] h-0.5 z-0">
+            {/* Faint static track */}
+            <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 via-cyan-500/10 to-blue-500/5 rounded-full" />
+            {/* Animated fill */}
+            <motion.div
+              className="absolute inset-y-0 left-0 bg-gradient-to-r from-blue-500/40 via-cyan-500/50 to-blue-500/40 rounded-full"
+              initial={{ width: "0%" }}
+              whileInView={{ width: "100%" }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 1.5, delay: 0.3, ease: [0.25, 0.46, 0.45, 0.94] as const }}
+            />
+            {/* Glowing dot at the leading edge */}
+            <motion.div
+              className="absolute top-1/2 -translate-y-1/2 w-2 h-2 rounded-full bg-cyan-400 shadow-[0_0_8px_rgba(6,182,212,0.6)]"
+              initial={{ left: "0%" }}
+              whileInView={{ left: "100%" }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 1.5, delay: 0.3, ease: [0.25, 0.46, 0.45, 0.94] as const }}
+            />
+          </div>
 
           <StaggerContainer className="relative z-10 grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {steps.map((step) => (

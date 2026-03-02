@@ -4,7 +4,7 @@ import { useState } from "react";
 import { ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
-import { AnimatePresence, motion, FadeIn } from "@/components/ui/Motion";
+import { AnimatePresence, motion, ScaleIn } from "@/components/ui/Motion";
 
 const faqs = [
   {
@@ -45,7 +45,7 @@ export default function FAQSection() {
   return (
     <section className="py-16 lg:py-24">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-        <FadeIn className="text-center mb-12">
+        <ScaleIn className="text-center mb-12">
           <h2 className="text-3xl sm:text-4xl font-bold text-primary mb-4">
             Frequently asked questions
           </h2>
@@ -55,12 +55,16 @@ export default function FAQSection() {
               See all FAQs
             </Link>
           </p>
-        </FadeIn>
+        </ScaleIn>
 
         <div className="space-y-3">
           {faqs.map((faq, index) => (
-            <div
+            <motion.div
               key={index}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-40px" }}
+              transition={{ duration: 0.4, delay: index * 0.08, ease: "easeOut" }}
               className={cn(
                 "rounded-xl overflow-hidden transition-all duration-300",
                 openIndex === index
@@ -95,7 +99,7 @@ export default function FAQSection() {
                   </motion.div>
                 )}
               </AnimatePresence>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

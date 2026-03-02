@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { TrendingDown, Brain, Landmark, DollarSign, Award, ShieldCheck } from "lucide-react";
 import Button from "@/components/ui/Button";
-import { FadeIn, StaggerContainer, StaggerItem, motion } from "@/components/ui/Motion";
+import { SlideIn, StaggerContainer, StaggerItem, motion } from "@/components/ui/Motion";
 import AnimatedHighlight from "@/components/ui/AnimatedHighlight";
 
 const benefits = [
@@ -45,7 +45,7 @@ export default function Benefits() {
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col lg:flex-row items-start gap-12 lg:gap-20">
           {/* Left side — Heading + CTA (40%) */}
-          <FadeIn className="lg:w-5/12 lg:sticky lg:top-32 text-center lg:text-left">
+          <SlideIn direction="left" className="lg:w-5/12 lg:sticky lg:top-32 text-center lg:text-left">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-primary uppercase tracking-tight leading-tight mb-5">
               Why Choose
               <br />
@@ -64,7 +64,7 @@ export default function Benefits() {
                 <Button size="lg" className="btn-shine">Get Your Free Quote</Button>
               </Link>
             </div>
-          </FadeIn>
+          </SlideIn>
 
           {/* Right side — Benefit grid (60%) */}
           <StaggerContainer className="lg:w-7/12 grid sm:grid-cols-2 gap-5 w-full">

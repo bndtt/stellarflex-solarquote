@@ -5,6 +5,7 @@ import Button from "@/components/ui/Button";
 
 import SectionDivider from "@/components/ui/SectionDivider";
 import MorphingBlob from "@/components/ui/MorphingBlob";
+import ParallaxBackground from "@/components/ui/ParallaxBackground";
 import { motion } from "@/components/ui/Motion";
 
 const stagger = {
@@ -62,6 +63,9 @@ export default function Hero() {
           backgroundSize: "40px 40px",
         }}
       />
+
+      {/* 3D parallax solar panel background */}
+      <ParallaxBackground />
 
       {/* Morphing gradient blob */}
       <MorphingBlob className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/3 w-[600px] h-[600px] lg:w-[800px] lg:h-[800px] opacity-60 pointer-events-none" />

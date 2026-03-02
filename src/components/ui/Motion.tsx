@@ -140,5 +140,66 @@ export function AnimatedNumber({
   );
 }
 
+// --- SlideIn: directional slide + fade when element scrolls into view ---
+type Direction = "left" | "right" | "up" | "down";
+
+interface SlideInProps extends HTMLMotionProps<"div"> {
+  direction?: Direction;
+  delay?: number;
+  duration?: number;
+  distance?: number;
+}
+
+const directionMap: Record<Direction, { x: number; y: number }> = {
+  left: { x: -40, y: 0 },
+  right: { x: 40, y: 0 },
+  up: { x: 0, y: -30 },
+  down: { x: 0, y: 30 },
+};
+
+export function SlideIn({
+  children,
+  direction = "left",
+  delay = 0,
+  duration = 0.6,
+  distance,
+  ...props
+}: SlideInProps) {
+  const d = directionMap[direction];
+  const multiplier = distance ? distance / 40 : 1;
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, x: d.x * multiplier, y: d.y * multiplier }}
+      whileInView={{ opacity: 1, x: 0, y: 0 }}
+      viewport={{ once: true, margin: "-80px" }}
+      transition={{ duration, delay, ease: [0.25, 0.46, 0.45, 0.94] as const }}
+      {...props}
+    >
+      {children}
+    </motion.div>
+  );
+}
+
+// --- ScaleIn: scale from small + fade when element scrolls into view ---
+interface ScaleInProps extends HTMLMotionProps<"div"> {
+  delay?: number;
+  duration?: number;
+}
+
+export function ScaleIn({ children, delay = 0, duration = 0.5, ...props }: ScaleInProps) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, scale: 0.85 }}
+      whileInView={{ opacity: 1, scale: 1 }}
+      viewport={{ once: true, margin: "-80px" }}
+      transition={{ duration, delay, ease: "easeOut" }}
+      {...props}
+    >
+      {children}
+    </motion.div>
+  );
+}
+
 // --- Re-export AnimatePresence and motion for convenience ---
 export { AnimatePresence, motion };

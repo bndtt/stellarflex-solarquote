@@ -4,16 +4,18 @@ import Link from "next/link";
 import { Home, Building2, ArrowRight } from "lucide-react";
 import Button from "@/components/ui/Button";
 import TiltCard from "@/components/ui/TiltCard";
-import { FadeIn, StaggerContainer, StaggerItem } from "@/components/ui/Motion";
+import { SlideIn, StaggerContainer, StaggerItem } from "@/components/ui/Motion";
 import SectionDivider from "@/components/ui/SectionDivider";
+import ParallaxShapes, { LIGHT_SECTION_SHAPES } from "@/components/ui/ParallaxShapes";
 
 export default function CustomerTypeSelector() {
   return (
     <section className="py-20 lg:py-32 bg-neutral-50 relative">
+      <ParallaxShapes shapes={LIGHT_SECTION_SHAPES} />
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col lg:flex-row items-start gap-12 lg:gap-20">
           {/* Left side — Heading & description */}
-          <FadeIn className="lg:w-5/12 lg:sticky lg:top-32 text-center lg:text-left">
+          <SlideIn direction="left" className="lg:w-5/12 lg:sticky lg:top-32 text-center lg:text-left">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-primary uppercase tracking-tight leading-tight mb-5">
               Solar Solutions
               <br />
@@ -25,7 +27,7 @@ export default function CustomerTypeSelector() {
             </p>
             {/* Accent line */}
             <div className="hidden lg:block w-16 h-1 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full mt-8" />
-          </FadeIn>
+          </SlideIn>
 
           {/* Right side — Cards */}
           <StaggerContainer className="lg:w-7/12 space-y-6 w-full">
