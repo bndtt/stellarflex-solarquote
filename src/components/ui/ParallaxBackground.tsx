@@ -2,28 +2,12 @@
 
 import { useEffect, useRef, useState } from "react";
 
+const PANEL_SRC = "/images/hero-panels.png";
+
 const LAYERS = [
-  {
-    src: "https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&q=80&w=1400",
-    depth: 15,
-    opacity: 0.12,
-    filter: "grayscale(1) contrast(1.1) brightness(0.6)",
-    blendMode: "normal" as const,
-  },
-  {
-    src: "https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?auto=format&fit=crop&q=80&w=1400",
-    depth: 30,
-    opacity: 0.08,
-    filter: "grayscale(1) contrast(1.2) brightness(0.7)",
-    blendMode: "screen" as const,
-  },
-  {
-    src: "https://images.unsplash.com/photo-1497440001374-f26997328c1b?auto=format&fit=crop&q=80&w=1400",
-    depth: 45,
-    opacity: 0.06,
-    filter: "grayscale(1) contrast(1.3) brightness(0.8)",
-    blendMode: "overlay" as const,
-  },
+  { depth: 15, opacity: 0.14, filter: "contrast(1.1) brightness(0.55)", blendMode: "normal" as const },
+  { depth: 30, opacity: 0.09, filter: "contrast(1.2) brightness(0.65)", blendMode: "screen" as const },
+  { depth: 45, opacity: 0.06, filter: "contrast(1.3) brightness(0.75)", blendMode: "overlay" as const },
 ];
 
 interface ParallaxBackgroundProps {
@@ -82,12 +66,12 @@ export default function ParallaxBackground({ className }: ParallaxBackgroundProp
     return (
       <div className={`absolute inset-0 pointer-events-none overflow-hidden ${className || ""}`}>
         <div
-          className="absolute inset-0 opacity-[0.06]"
+          className="absolute inset-0 opacity-[0.08]"
           style={{
-            backgroundImage: `url(${LAYERS[0].src})`,
+            backgroundImage: `url(${PANEL_SRC})`,
             backgroundSize: "cover",
             backgroundPosition: "center",
-            filter: "grayscale(1) contrast(1.1) brightness(0.6)",
+            filter: "contrast(1.1) brightness(0.55)",
           }}
         />
       </div>
@@ -112,14 +96,14 @@ export default function ParallaxBackground({ className }: ParallaxBackgroundProp
             transition: "transform 0.6s cubic-bezier(0.16, 1, 0.3, 1)",
           }}
         >
-          {/* Image layers */}
+          {/* Image layers — all use the same solar panel image at different depths */}
           {LAYERS.map((layer, i) => (
             <div
               key={i}
               ref={(el) => { layerRefs.current[i] = el; }}
               className="absolute inset-0"
               style={{
-                backgroundImage: `url(${layer.src})`,
+                backgroundImage: `url(${PANEL_SRC})`,
                 backgroundSize: "cover",
                 backgroundPosition: "center",
                 filter: layer.filter,
