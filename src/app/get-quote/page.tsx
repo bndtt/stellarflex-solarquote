@@ -5,7 +5,7 @@ import { Home, Building2 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import Button from "@/components/ui/Button";
 import AddressInput from "@/components/ui/AddressInput";
-import QuoteResults from "@/components/quote/QuoteResults";
+import QuoteOrbitalView from "@/components/quote/QuoteOrbitalView";
 import AILoadingAnimation from "@/components/quote/AILoadingAnimation";
 import { AnimatePresence, motion } from "@/components/ui/Motion";
 import type { QuoteUiPayload } from "@/types/quote";
@@ -78,7 +78,7 @@ export default function GetQuotePage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, ease: "easeOut" }}
             >
-              <QuoteResults quote={quoteResult} onReset={handleReset} />
+              <QuoteOrbitalView quote={quoteResult} onReset={handleReset} />
             </motion.div>
           ) : hasRealEmbed ? (
             <iframe
