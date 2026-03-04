@@ -3,7 +3,7 @@
 import { cn } from "@/lib/utils";
 import { ButtonHTMLAttributes, forwardRef } from "react";
 
-// Button variants matching the StellarFlex brand
+// Button variants matching the SolarQuote brand
 type ButtonVariant = "primary" | "secondary" | "outline" | "outline-light" | "ghost";
 type ButtonSize = "sm" | "md" | "lg";
 

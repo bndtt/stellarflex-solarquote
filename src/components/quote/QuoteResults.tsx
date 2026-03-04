@@ -279,7 +279,7 @@ export default function QuoteResults({ quote, onReset }: QuoteResultsProps) {
             Get Another Quote
           </button>
           <a
-            href={`mailto:hello@stellarflexsolarquote.com?subject=Solar Quote ${quote.propertyType}&body=I received a ${quote.quoteLabel} for ${quote.systemSizeKw} kW. I'd like to discuss next steps.`}
+            href={`mailto:hello@stellarflex.com?subject=Solar Quote ${quote.propertyType}&body=I received a ${quote.quoteLabel} for ${quote.systemSizeKw} kW. I'd like to discuss next steps.`}
             className="flex-1 px-6 py-3 bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-400 hover:to-cyan-400 text-white rounded-lg text-sm font-semibold text-center transition-all duration-300 active:scale-[0.98] shadow-md hover:shadow-lg hover:shadow-blue-500/20"
           >
             Discuss This Quote

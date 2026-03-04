@@ -1,5 +1,5 @@
 // ============================================
-// StellarFlex SolarQuote — Quote Engine Types
+// SolarQuote — Quote Engine Types
 // ============================================
 
 // --- Input Types ---

@@ -89,7 +89,7 @@ export async function resolveRooftop(
   assumptions.push({
     key: "rooftop_source",
     value: "regional_fallback",
-    source: "StellarFlex regional defaults",
+    source: "SolarQuote regional defaults",
     note: fallbackReason,
   });
 

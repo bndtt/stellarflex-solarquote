@@ -17,8 +17,8 @@ const inter = Inter({
 // Default metadata for the entire site — individual pages can override these
 export const metadata: Metadata = {
   title: {
-    default: "StellarFlex SolarQuote — Solar Made Simple for Ontario Homes & Businesses",
-    template: "%s | StellarFlex SolarQuote",
+    default: "SolarQuote — Solar Made Simple for Ontario Homes & Businesses",
+    template: "%s | SolarQuote",
   },
   description:
     "Get an instant, AI-powered solar quote for your Ontario home or business. Transparent pricing, premium equipment, $0 upfront options. 500+ installations, 4.9★ rating.",
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_CA",
-    siteName: "StellarFlex SolarQuote",
+    siteName: "SolarQuote",
   },
 };
 

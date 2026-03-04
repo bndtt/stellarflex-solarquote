@@ -5,7 +5,7 @@ import FinalCTA from "@/components/sections/FinalCTA";
 export const metadata: Metadata = {
   title: "About Us",
   description:
-    "Learn about StellarFlex SolarQuote — Ontario's trusted solar energy partner for homes and businesses. Our mission, values, and local expertise.",
+    "Learn about SolarQuote — Ontario's trusted solar energy partner for homes and businesses. Our mission, values, and local expertise.",
 };
 
 const values = [
@@ -40,7 +40,7 @@ export default function AboutPage() {
         <div className="absolute top-10 right-10 w-64 h-64 bg-cyan-400/10 rounded-full blur-3xl pointer-events-none" />
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl sm:text-5xl font-bold text-white mb-6">
-            About StellarFlex SolarQuote
+            About SolarQuote
           </h1>
           <p className="text-lg text-neutral-300 max-w-2xl mx-auto">
             We&apos;re on a mission to make solar energy accessible, affordable, and
@@ -55,7 +55,7 @@ export default function AboutPage() {
           <h2 className="text-3xl font-bold text-primary mb-6">Our Story</h2>
           <div className="prose prose-lg text-neutral-600 space-y-4">
             <p>
-              StellarFlex SolarQuote was founded with a simple observation: getting a
+              SolarQuote was founded with a simple observation: getting a
               solar quote in Ontario shouldn&apos;t be complicated. Too many homeowners
               and business owners were overwhelmed by confusing pricing, pushy sales
               tactics, and a lack of transparency.

@@ -1,4 +1,4 @@
-# Quote System Audit — StellarFlex SolarQuote
+# Quote System Audit — SolarQuote
 
 **Date:** 2026-02-23
 **Status:** Pre-implementation audit

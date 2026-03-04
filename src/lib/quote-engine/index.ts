@@ -1,5 +1,5 @@
 // ============================================
-// StellarFlex Quote Engine — Main Orchestrator
+// SolarQuote Quote Engine — Main Orchestrator
 // Generates a complete solar quote from user input
 // ============================================
 

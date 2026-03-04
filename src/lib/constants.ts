@@ -1,10 +1,10 @@
-// Site-wide constants and metadata for StellarFlex SolarQuote
+// Site-wide constants and metadata for SolarQuote
 
 export const SITE_CONFIG = {
-  name: "StellarFlex SolarQuote",
+  name: "SolarQuote",
   tagline: "Solar made simple — for your home and business.",
-  url: process.env.NEXT_PUBLIC_SITE_URL || "https://stellarflexsolarquote.com",
-  email: "hello@stellarflexsolarquote.com",
+  url: process.env.NEXT_PUBLIC_SITE_URL || "https://stellarflex.com/solarquote",
+  email: "hello@stellarflex.com",
   phone: "(647) 555-0123", // Update with real number
   location: "Ontario, Canada",
 };
@@ -52,7 +52,7 @@ export const FOOTER_LINKS = [
 
 // Social media links
 export const SOCIAL_LINKS = {
-  facebook: "https://facebook.com/stellarflexsolarquote",
-  instagram: "https://instagram.com/stellarflexsolarquote",
-  linkedin: "https://linkedin.com/company/stellarflexsolarquote",
+  facebook: "https://facebook.com/solarquote",
+  instagram: "https://instagram.com/solarquote",
+  linkedin: "https://linkedin.com/company/solarquote",
 };

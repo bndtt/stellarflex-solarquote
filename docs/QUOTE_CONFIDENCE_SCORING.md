@@ -7,7 +7,7 @@
 
 ## Overview
 
-Every quote produced by the StellarFlex engine includes a confidence score that communicates how reliable the estimate is. This score is based on five weighted dimensions, each reflecting a different source of uncertainty in the calculation. The confidence system serves two purposes:
+Every quote produced by the SolarQuote engine includes a confidence score that communicates how reliable the estimate is. This score is based on five weighted dimensions, each reflecting a different source of uncertainty in the calculation. The confidence system serves two purposes:
 
 1. **User transparency:** Clearly communicates what the quote is based on and where uncertainty exists.
 2. **Internal quality signal:** Drives the quote label (full estimate vs. preliminary vs. remote-only) and determines the width of uncertainty ranges applied to all output figures.

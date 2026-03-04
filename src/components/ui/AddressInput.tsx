@@ -61,7 +61,7 @@ export default function AddressInput({
           headers: {
             "Accept-Language": "en",
             // Nominatim requires a User-Agent for their usage policy
-            "User-Agent": "StellarFlexSolarQuote/1.0",
+            "User-Agent": "SolarQuote/1.0",
           },
         },
       );

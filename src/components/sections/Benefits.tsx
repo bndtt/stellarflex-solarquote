@@ -50,7 +50,7 @@ export default function Benefits() {
               Why Choose
               <br />
               <AnimatedHighlight color="rgba(6,182,212,0.15)">
-                <span className="gradient-text">StellarFlex</span>
+                <span className="gradient-text">SolarQuote</span>
               </AnimatedHighlight>?
             </h2>
             <p className="text-lg text-neutral-500 max-w-md mx-auto lg:mx-0 mb-8">

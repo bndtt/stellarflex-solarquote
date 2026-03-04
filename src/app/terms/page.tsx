@@ -3,7 +3,7 @@ import { SITE_CONFIG } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Terms & Conditions",
-  description: "StellarFlex SolarQuote terms and conditions of service.",
+  description: "SolarQuote terms and conditions of service.",
 };
 
 export default function TermsPage() {

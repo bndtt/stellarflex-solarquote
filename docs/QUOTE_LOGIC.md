@@ -8,7 +8,7 @@
 
 ## Overview
 
-The StellarFlex SolarQuote engine is a modular pipeline that takes minimal user input (property type, location, and electricity usage) and produces a comprehensive solar installation quote. Each stage of the pipeline is implemented as an independent module in `src/lib/quote-engine/`, making the system easy to test, extend, and debug.
+The SolarQuote engine is a modular pipeline that takes minimal user input (property type, location, and electricity usage) and produces a comprehensive solar installation quote. Each stage of the pipeline is implemented as an independent module in `src/lib/quote-engine/`, making the system easy to test, extend, and debug.
 
 The pipeline transforms a `QuoteInput` object through a series of enrichment and estimation stages, producing a `QuoteOutput` with full technical and financial breakdowns. This output is then mapped to a `QuoteUiPayload` optimized for frontend rendering.
 

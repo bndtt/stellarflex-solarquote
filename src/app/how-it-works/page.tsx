@@ -5,7 +5,7 @@ import FinalCTA from "@/components/sections/FinalCTA";
 export const metadata: Metadata = {
   title: "How It Works",
   description:
-    "Learn how to go solar with StellarFlex in 6 simple steps. From instant quote to installation — we handle everything for your Ontario property.",
+    "Learn how to go solar with SolarQuote in 6 simple steps. From instant quote to installation — we handle everything for your Ontario property.",
 };
 
 const steps = [

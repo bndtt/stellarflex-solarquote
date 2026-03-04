@@ -3,7 +3,7 @@ import { SITE_CONFIG } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
-  description: "StellarFlex SolarQuote privacy policy — how we collect, use, and protect your data.",
+  description: "SolarQuote privacy policy — how we collect, use, and protect your data.",
 };
 
 export default function PrivacyPolicyPage() {

@@ -5,7 +5,7 @@ import { BookOpen, Clock } from "lucide-react";
 export const metadata: Metadata = {
   title: "Solar Academy",
   description:
-    "Learn everything about solar energy in Ontario. Guides on incentives, savings, installation, and more from StellarFlex SolarQuote.",
+    "Learn everything about solar energy in Ontario. Guides on incentives, savings, installation, and more from SolarQuote.",
 };
 
 // Placeholder blog posts — will be replaced with MDX-based content in Phase 2

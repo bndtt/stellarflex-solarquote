@@ -1,4 +1,4 @@
-# Assumptions — StellarFlex Quote Engine v1.0.0
+# Assumptions — SolarQuote Quote Engine v1.0.0
 
 All assumptions used by the quote engine, with sources. Update this file when calibrating or adding data.
 

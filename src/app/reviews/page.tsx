@@ -5,7 +5,7 @@ import FinalCTA from "@/components/sections/FinalCTA";
 export const metadata: Metadata = {
   title: "Reviews",
   description:
-    "Read what Ontario homeowners and businesses say about their StellarFlex SolarQuote experience. 4.9★ average rating.",
+    "Read what Ontario homeowners and businesses say about their SolarQuote experience. 4.9★ average rating.",
 };
 
 // Placeholder reviews — replace with real testimonials or pull from a CMS/database
@@ -22,7 +22,7 @@ const reviews = [
     location: "Ottawa, ON",
     type: "Residential",
     rating: 5,
-    text: "I compared three solar companies and StellarFlex had the best pricing and most transparent process. No surprise costs. Highly recommend.",
+    text: "I compared three solar companies and SolarQuote had the best pricing and most transparent process. No surprise costs. Highly recommend.",
   },
   {
     name: "Maria L.",
